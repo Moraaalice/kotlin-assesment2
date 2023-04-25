@@ -76,7 +76,7 @@ class SavingsAccount( accountNumber:Int, accountName:String, balance: Double):Cu
 fun multiple(){
     for (n in 1..1000){
         if (n%6==0 && n%8==0){
-            println("Bingo")
+            println(n)
         }
     }
 }
@@ -88,9 +88,15 @@ fun multiple(){
 //4. Must contain a digit
 //Your function should determine whether the password provided is valid or not.
 //The function returns true/false (7pts)
-fun pass(password:String){
-        for (p in password){
-            if (p in password 8..16)
-        }
-
+fun validPassword(password: String): Boolean {
+    if (password == "password") {
+        return false
+    }
+    if (password.length < 8 || password.length > 16) {
+        return false
+    }
+    if (!password.any { it.isDigit() }) {
+        return false
+    }
+    return true
 }
